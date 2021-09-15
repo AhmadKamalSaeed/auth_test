@@ -9,7 +9,10 @@ const app = express();
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://test123:Kamalsaeedawan1997@cluster0.q5qbi.mongodb.net/auth?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth', {
+    useNewUrlParser:
+        true
+})
 
 
 const { User } = require('./models/user')
